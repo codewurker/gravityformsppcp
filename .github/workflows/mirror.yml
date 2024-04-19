@@ -1,0 +1,18 @@
+name: Mirror
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Mirror
+        uses: codewurker/gravityforms-plugin-mirror-action@main
+        with:
+          license-key: ${{ secrets.LICENSE_KEY }}
+          plugin-basename: gravityformsppcp/ppcp.php
